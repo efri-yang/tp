@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"E:\Xampp\htdocs\MyProject\src\MyPhpCms\TPAdmin\public/../application/admin\view\login\index.html";i:1527036710;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"G:\xampp\htdocs\MyProject\src\MyPhpCms\tpAdmin\public/../application/admin\view\login\index.html";i:1527697780;}*/ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,19 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
-    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/TPAdmin/public/static/css/iconfont/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/TPAdmin/public/static/AmazeUI/assets/css/amazeui.css">
-    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/TPAdmin/public/static/css/common.css">
-    <script type="text/javascript" src="/MyProject/src/MyPhpCms/TPAdmin/public/static/js/common/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="/MyProject/src/MyPhpCms/TPAdmin/public/static/AmazeUI/assets/js/amazeui.js"></script>
-    <script type="text/javascript" src="/MyProject/src/MyPhpCms/TPAdmin/public/static/js/plugin/layer/layer.js"></script>
-    <script type="text/javascript" src="/MyProject/src/MyPhpCms/TPAdmin/public/static/js/plugin/jquery.ba-throttle-debounce.min.js"></script>
-    <script type="text/javascript" src="/MyProject/src/MyPhpCms/TPAdmin/public/static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/tpAdmin/public/static/css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/tpAdmin/public/static/AmazeUI/assets/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="/MyProject/src/MyPhpCms/tpAdmin/public/static/css/common.css">
+    <script type="text/javascript" src="/MyProject/src/MyPhpCms/tpAdmin/public/static/js/common/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/MyProject/src/MyPhpCms/tpAdmin/public/static/AmazeUI/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="/MyProject/src/MyPhpCms/tpAdmin/public/static/js/plugin/layer/layer.js"></script>
+    <script type="text/javascript" src="/MyProject/src/MyPhpCms/tpAdmin/public/static/js/plugin/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="/MyProject/src/MyPhpCms/tpAdmin/public/static/js/common.js"></script>
 </head>
 
 <body>
     <div class="am-g mt50">
-        
+
         <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
             <form method="post" id="J_form-1" class="am-form am-form-horizontal" action="<?php echo url('admin/login/login',array('uri'=>$url)); ?>">
                 <div class="am-form-group">
@@ -45,7 +45,7 @@
                         <input type="text" placeholder="输入密码" name="captcha" />
                     </div>
                     <div class="am-para-inline">
-                        <!-- <img src="<?php echo captcha_src(); ?>" style="height:37px;" id="J_captcha"> -->
+                       
                         <img src="<?php echo url('login/verify'); ?>" style="height:37px;" id="J_captcha">
 
                     </div>
@@ -65,12 +65,13 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript">
+
+     <script type="text/javascript">
     (function($) {
         $(function() {
             function refreshVerify() {
                 var ts = Date.parse(new Date()) / 1000;
-                $('#J_captcha').attr("src", "<?php echo captcha_src(); ?>");
+                $('#J_captcha').attr("src", "<?php echo url('login/verify'); ?>");
             }
 
             $("#J_captcha-kbq").on("click", function() {
@@ -79,19 +80,9 @@
         })
     })(jQuery);
 
-    $(function(){
-    	$("#J_form-1").validator({
-    		validate: function(validity) {
-    			 var v = $(validity.field).val();
-    			
-    		},
-    		submit: function() {
-    			
-    			
-    		}
-    	})
-    })
+   
     </script>
+   
 </body>
 
 </html>

@@ -4,16 +4,17 @@ use app\admin\common\Auth;
 use app\admin\model\AuthUser;
 use think\captcha\Captcha;
 use think\Controller;
+use think\DB;
 use think\Loader;
 use think\Request;
-use think\DB;
 
-class Login extends controller {
+class Login extends Controller {
     public function index() {
         return $this->redirect("login");
     }
     //验证码
     public function verify() {
+
         $config = [
             // 验证码字符集合
             'codeSet' => '0123456789',
@@ -41,6 +42,7 @@ class Login extends controller {
     }
 
     public function login() {
+
         if ($this->request->isPost()) {
             $request = Request::instance();
             $params = $request->param();
@@ -56,7 +58,7 @@ class Login extends controller {
                 //下面是使用模型数组查询的方式，也可以使用主键的方式get就是静态方法，查询单条数据！！
                 //$user = $authUser::get(["email" => $params["email"], "password" => $params["password"]]);
                 //$data=Db::table("think_auth_user")->where("email",$params["cemail"])->where("password",$params["password"])->find();
-                $user = $authUser->where(["email" =>$params["email"], "password" => $params["password"]])->find();
+                $user = $authUser->where(["email" => $params["email"], "password" => $params["password"]])->find();
 
                 //判断用户是否存在，存在判断是否已被禁用 也可以直接!!$user因为查询不到的时候返回false
                 if (!!$user->id) {
@@ -80,12 +82,13 @@ class Login extends controller {
                 }
             }
         } else {
+
             $this->assign([
-                'url' => isset($this->param['uri']) ? $this->param['uri'] : '',
+                'url' => isset($this->request->param['uri']) ? $this->request->param['uri'] : '',
             ]);
         }
-
         return $this->fetch("index");
+
     }
 
     public function loginOut() {

@@ -31,7 +31,7 @@ return [
         'reset' => true,
     ],
     //伪静态设置
-    'url_html_suffix'=>false,
+    'url_html_suffix' => false,
     'template' => [
         'layout_on' => true,
         'layout_name' => 'layout',
@@ -43,5 +43,5 @@ return [
     ],
     'url_route_on' => true,
     'url_route_must' => false,
-    'url_common_param'=>true
+    'url_common_param' => false,
 ];
